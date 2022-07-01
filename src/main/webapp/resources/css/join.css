@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {   /* input number에 화살표제거 */
+    -webkit-appearance: none;
+    margin: 0;
+}
+input{
+
+}
+html, body{
+    height: auto;
+}
+.container{
+    display: grid;
+    grid-gap: 4px;
+    /* height: 1200px; */
+    min-height: calc(100vh - 100px - 100px - 70px);
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 100px 1fr 1fr 70px;
+    grid-template-areas:
+    'header header header'
+    'nav main aside'
+    'nav main aside'
+    'nav footer aside'
+;
+}
+/* .container div{
+    border: 1px solid orange;
+} */
+
+/* 1. justify-content : ㄱ
+    1) flex-start: 요소들을 컨테이너의 왼쪽으로 정렬합니다.
+    2) flex-end: 요소들을 컨테이너의 오른쪽으로 정렬합니다.
+    3) center: 요소들을 컨테이너의 가운데로 정렬합니다.
+    4) space-between: 요소들 사이에 동일한 간격을 둡니다.
+    5) space-around: 요소들 주위에 동일한 간격을 둡니다.
+2. align-items : ㄱ
+    1) flex-start: 요소들을 컨테이너의 꼭대기로 정렬합니다.
+    2) flex-end: 요소들을 컨테이너의 바닥으로 정렬합니다.
+    3) center: 요소들을 컨테이너의 세로선 상의 가운데로 정렬합니다.
+    4) baseline: 요소들을 컨테이너의 시작 위치에 정렬합니다.
+    5) stretch: 요소들을 컨테이너에 맞도록 늘립니다.
+3. flex-direction : ㄱ
+    1) row: 요소들을 텍스트의 방향과 동일하게 정렬합니다.
+    2) row-reverse: 요소들을 텍스트의 반대 방향으로 정렬합니다.
+    3) column: 요소들을 위에서 아래로 정렬합니다.
+    4) column-reverse: 요소들을 아래에서 위로 정렬합니다.
+4. flex-wrap : ㄱ
+    1) nowrap: 모든 요소들을 한 줄에 정렬합니다.
+    2) wrap: 요소들을 여러 줄에 걸쳐 정렬합니다.
+    3) wrap-reverse: 요소들을 여러 줄에 걸쳐 반대로 정렬합니다.
+    */
+
+.header{
+    display: grid;
+    grid-area: header;
+    background-color: black;
+    justify-content: space-between;
+}
+
+
+
+.nav{
+    grid-area: nav;
+    background-color: black;
+
+}
+
+
+
+.main{
+    grid-area: main;
+    display: flex;
+    background-image: url(https://w.wallhaven.cc/full/rd/wallhaven-rdz9j1.png);
+    background-size: 100% 100%; /* 배경이미지 사이즈 조절 */
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+.optional{
+    position: absolute;
+    /* width: 63.9%;
+    height: 74.9%; */
+    width: 70%;
+    height: 90%;
+    padding-bottom: 10%;
+    border-radius: 20px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.70; /* 배경 투명도 */
+    z-index: 1;
+}
+.frontCard{
+    display: grid;
+    width: 80%;
+    height: 70%;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+    color: white;
+}
+.frontCard table{   /* How to make table center */
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;  /* How to make talbe row gap */
+    color: white;
+}
+.clauses{
+
+}
+table tr, td{
+    padding: 10px;  /* How to make talbe row gap */
+}
+input[type="checkbox"]{     /* 신기술 */
+    width:20px;
+    height:20px;
+}
+input[type="date"]{
+    width:162px;
+    height:20px;
+    margin-top: 3px;
+}
+.frontCard #submit{
+    background-color: blueviolet;
+    border-radius: 6px;
+    padding: 10px;
+
+}
+
+
+
+.aside{
+    grid-area: aside;
+    background-color: black;
+}
+.aside img{
+    margin: 7px;
+    width: 150px;
+    height: 730px;
+}
+
+
+
+.footer{
+    grid-area: footer;
+    background-color: black;
+    bottom: 0px;
+
+}
+.footer ul{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+.footer li{
+    padding-left: 30px;
+    list-style: none;
+}

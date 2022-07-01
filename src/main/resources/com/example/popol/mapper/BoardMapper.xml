@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.popol.mapper.BoardMapper">
+    <!-- 전체 조회 -->
+    <select id="listAll" resultType="com.example.popol.model.BoardDto">
+        SELECT id, category_id AS categoryId, title, writer, content, create_time AS createTime FROM board_1;
+--      AS는 생략가능. AS없이 적어도 가능
+--      DB랑 이름이 다른 Dto가 있으면 전체이름을 써줘야한다.
+    </select>
+    <!-- 중복 ID 검사 -->
+
+    <!-- 저장 -->
+    <insert id="writed" parameterType="com.example.popol.model.BoardDto">
+        insert into board_1(title, writer, content) values(#{title}, #{writer}, #{content});
+    </insert>
+    <!-- 로그인 검사 -->
+</mapper>

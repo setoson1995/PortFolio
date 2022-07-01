@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.popol.mapper.UserMapper">
+    <!-- 전체 조회 -->
+    <select id="listAll" resultType="com.example.popol.model.UserDto">
+        --         SELECT * FROM crud_data AS data;
+        SELECT * FROM user_list;
+--      한번 AS를 해주면 별칭이 어딘가 저장되나보다. AS없이 적어도 가능하게된듯하다. 그렇다고 별칭만 사용은 불가한듯하다.
+    </select>
+    <!-- 중복 ID 검사 -->
+    <select id="checkId" parameterType="String" resultType="String">
+        SELECT user_id AS userId FROM user_list WHERE user_id = #{UserId};
+    </select>
+    <!-- 저장 -->
+    <insert id="join" parameterType="com.example.popol.model.UserDto">
+        insert into user_list(user_id, password, name, birth, email, post_code, address, address_info, contect_number, kind)
+        values(#{userId}, #{password1}, #{name}, #{birth}, #{email}, #{postCode}, #{address}, #{addressInfo}, #{contectNumber}, #{kind});
+    </insert>
+    <!-- 로그인 검사 -->
+    <select id="logined" parameterType="com.example.popol.model.UserDto" resultType="com.example.popol.model.UserDto">
+        SELECT user_id AS userId, password AS password1 FROM user_list WHERE user_id = #{userId} AND password = #{password1};
+    </select>
+    <!-- 탈퇴 -->
+    <delete id="closeAcount" parameterType="String">
+
+    </delete>
+</mapper>

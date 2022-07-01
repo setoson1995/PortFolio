@@ -1,0 +1,291 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    text-decoration: none;
+}
+a:hover{
+    cursor:pointer;
+}
+input{
+    background-color: azure;
+    border: 0.7px solid black;
+    width: 170px;
+    height: 20px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {   /* input number에 화살표제거 */
+    -webkit-appearance: none;
+    margin: 0;
+}
+table{
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+tr, td{
+    padding: 9px;
+}
+html, body {    /* 화면 높이 꽉차게함 */
+    margin: 0;
+    height: 100%;
+    /* overflow: hidden; */
+}
+/* html과 body가 최초로 선언 되었으니까 높이를 100으로
+    먼저 맞춰주면 화면의 전체 크기를 알아서 전부
+    덮어주게되는데 다음으로 grid를 사용한다 생각했을때
+    body의 main안에 선언되는 container의 높이를 100%로
+    만들어주면 footer가 말려올라오지 않는다. 하지만 화면 넓이가 달라지면 footer가 올라올 수 있다.*/
+.container{
+    display: grid;
+    grid-gap: 4px;
+    height: auto;
+    min-height: calc(100vh - 100px - 100px - 70px);
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 100px 1fr 1fr 70px;
+    grid-template-areas:
+    'header header header'
+    'nav main aside'
+    'nav main aside'
+    'nav footer aside'
+;
+}
+/* .container div{
+    border: 1px solid orange;
+} */
+
+/* 1. justify-content : ㄱ
+    1) flex-start: 요소들을 컨테이너의 왼쪽으로 정렬합니다.
+    2) flex-end: 요소들을 컨테이너의 오른쪽으로 정렬합니다.
+    3) center: 요소들을 컨테이너의 가운데로 정렬합니다.
+    4) space-between: 요소들 사이에 동일한 간격을 둡니다.
+    5) space-around: 요소들 주위에 동일한 간격을 둡니다.
+2. align-items : ㄱ
+    1) flex-start: 요소들을 컨테이너의 꼭대기로 정렬합니다.
+    2) flex-end: 요소들을 컨테이너의 바닥으로 정렬합니다.
+    3) center: 요소들을 컨테이너의 세로선 상의 가운데로 정렬합니다.
+    4) baseline: 요소들을 컨테이너의 시작 위치에 정렬합니다.
+    5) stretch: 요소들을 컨테이너에 맞도록 늘립니다.
+3. flex-direction : ㄱ
+    1) row: 요소들을 텍스트의 방향과 동일하게 정렬합니다.
+    2) row-reverse: 요소들을 텍스트의 반대 방향으로 정렬합니다.
+    3) column: 요소들을 위에서 아래로 정렬합니다.
+    4) column-reverse: 요소들을 아래에서 위로 정렬합니다.
+4. flex-wrap : ㄱ
+    1) nowrap: 모든 요소들을 한 줄에 정렬합니다.
+    2) wrap: 요소들을 여러 줄에 걸쳐 정렬합니다.
+    3) wrap-reverse: 요소들을 여러 줄에 걸쳐 반대로 정렬합니다.
+    */
+
+.header{
+    display: grid;
+    grid-area: header;
+    background-color: black;
+    justify-content: space-between;
+}
+
+.nav{
+    grid-area: nav;
+    background-color: black;
+}
+.nav-bar{
+    padding-top: 100px;
+}
+.nav-bar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14pt;
+}
+.nav-bar a:hover{
+    text-decoration: underline;
+}
+
+
+
+.main{
+    grid-area: main;
+    display: flex;
+    background-image: url(https://w.wallhaven.cc/full/rd/wallhaven-rdz9j1.png);
+    background-size: 100% 100%; /* 배경이미지 사이즈 조절 */
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+.userPageFront{
+    /* display: flex; */
+    display: none;
+    background-color: rgba(255, 215, 0, 0.8);
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+/*
+    padding: 1px 2px 3px 4px
+    순서는 위쪽에서 부터 시계방향이다. 즉,
+    위쪽 여백 1px, 오른쪽 여백 2px, 아래 여백 3px,
+    왼쪽 여백 4px을 뜻한다.
+*/
+h1{
+    display: flex;
+    padding: 20px;
+    margin: 0px 0px 0px 20px;
+}
+.front{
+    display: grid;
+    width: 95%;
+    height: 90%;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    'front1 front2'
+    'front3 front3'
+;
+    /* grid-template-areas안에 사용되는 이름은
+        닉네임 같은거라서 아무거나 해서 grid-area를
+        적을때 같게만 적으면 된다. */
+    justify-content: center;
+    align-items: center;
+    margin: 0px 30px 0px 0px;
+}
+.front1{
+    grid-area: front1;
+    display: grid;
+    height: 110%;
+    background-color: salmon;
+    /* margin: 0px 0px 0px 10px; */
+    justify-content: center;
+    align-items: center;
+    word-break:break-all; /* 정해진 넓이를 넘어가는 긴글을 줄바꿈을 해줌. */
+}
+.front2{
+    grid-area: front2;
+    display: grid;
+    height: 110%;
+    background-color: cornflowerblue;
+    justify-content: center;
+    align-items: center;
+    word-break:break-all; /* 정해진 넓이를 넘어가는 긴글을 줄바꿈을 해줌. */
+}
+.front3{
+    grid-area: front3;
+    display: flex;
+    height: 90%;
+    background-color: crimson;
+    justify-content: center;
+    align-items: center;
+    word-break:break-all; /* 정해진 넓이를 넘어가는 긴글을 줄바꿈을 해줌. */
+}
+.userPageMiddle{
+    display: flex;
+    /* display: none; */
+    background-color: rgba(255, 215, 0, 0.8);
+    width: 60%;
+    height: 90%;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.userPageMiddle-form > input{
+    width:100px;
+    height:40px;
+}
+input[type="date"]{
+    width:162px;
+    height:20px;
+    margin-top: 3px;
+}
+.userPageback{
+    display: none;
+    background-color: rgba(255, 215, 0, 0.8);
+    width: 40%;
+    height: 40%;
+    border-radius: 20px;
+    /* opacity: 0.70; 배경 투명도 */
+    justify-content: center;
+    align-items: center;
+}
+.closeAccount{
+    /* display: flex; */
+    display: none;
+    background-color: rgba(255, 215, 0, 0.8);
+    /* 배경만 투명하게 하는거라면 rgba라는 색 타입을
+        사용하여 4번째에 얼마나 투명하게 할껀지 정의해준다. */
+    width: 60%;
+    height: 40%;
+    border-radius: 20px;
+
+    justify-content: center;
+    align-items: center;
+}
+.wrap-closeAccount-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 150px;
+}
+.closeAccount-form > input[type=password]{
+    width: 170px;
+    height: 30px;
+}
+.closeAccount-form > input[type=submit]{
+    width: 70px;
+    height: 35px;
+    background-color: rgb(96, 54, 1);
+    color: rgb(255, 238, 82);
+}
+.wrap-closeAccount-info > strong{
+    display: grid;
+    margin-left : -10px ;
+    /* padding은 +만가능하지만 margin은 +-둘다 가능 */
+    color: rgb(247, 33, 25);
+    text-decoration: underline;
+    font-size: 13pt;
+    font-weight: 700;
+}
+/* .optional{
+    z-index: 1;
+} */
+
+/* table tr, td{
+    padding: 10px;  How to make talbe row gap
+} */
+
+
+
+
+
+.aside{
+    grid-area: aside;
+    background-color: black;
+}
+.aside img{
+    margin: 7px;
+    width: 150px;
+    height: 730px;
+}
+
+
+
+.footer{
+    grid-area: footer;
+    background-color: black;
+    bottom: 0px;
+
+}
+.footer ul{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+.footer li{
+    padding-left: 30px;
+    list-style: none;
+}

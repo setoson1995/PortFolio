@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {   /* input number에 화살표제거 */
+    -webkit-appearance: none;
+    margin: 0;
+}
+body{
+    height: 100vh;
+}
+/* 부모격인 body의 높이를 100vh로 설정을 한 뒤에 파츠를
+    잡아주는 grid를 선언한 부분에 높이를 100%로 잡아주면
+    동적으로 작아졌다 길어지는 화면을 구성할 수 있다. */
+.container{
+    display: grid;
+    grid-gap: 4px;
+    height: 100%;
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 100px 1fr 1fr 70px;
+    grid-template-areas:
+    'header header header'
+    'nav main aside'
+    'nav main aside'
+    'nav footer aside'
+;
+}
+/* .container div{
+    border: 1px solid orange;
+} */
+
+/* 1. justify-content : ㄱ
+    1) flex-start: 요소들을 컨테이너의 왼쪽으로 정렬합니다.
+    2) flex-end: 요소들을 컨테이너의 오른쪽으로 정렬합니다.
+    3) center: 요소들을 컨테이너의 가운데로 정렬합니다.
+    4) space-between: 요소들 사이에 동일한 간격을 둡니다.
+    5) space-around: 요소들 주위에 동일한 간격을 둡니다.
+2. align-items : ㄱ
+    1) flex-start: 요소들을 컨테이너의 꼭대기로 정렬합니다.
+    2) flex-end: 요소들을 컨테이너의 바닥으로 정렬합니다.
+    3) center: 요소들을 컨테이너의 세로선 상의 가운데로 정렬합니다.
+    4) baseline: 요소들을 컨테이너의 시작 위치에 정렬합니다.
+    5) stretch: 요소들을 컨테이너에 맞도록 늘립니다.
+3. flex-direction : ㄱ
+    1) row: 요소들을 텍스트의 방향과 동일하게 정렬합니다.
+    2) row-reverse: 요소들을 텍스트의 반대 방향으로 정렬합니다.
+    3) column: 요소들을 위에서 아래로 정렬합니다.
+    4) column-reverse: 요소들을 아래에서 위로 정렬합니다.
+4. flex-wrap : ㄱ
+    1) nowrap: 모든 요소들을 한 줄에 정렬합니다.
+    2) wrap: 요소들을 여러 줄에 걸쳐 정렬합니다.
+    3) wrap-reverse: 요소들을 여러 줄에 걸쳐 반대로 정렬합니다.
+    */
+
+header{
+    grid-area: header;
+    background-color: aqua;
+}
+nav{
+    grid-area: nav;
+    background-color: blueviolet;
+}
+main{
+    grid-area: main;
+    background-color: chocolate;
+
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    'wrap1 wrap2'
+    'wrap3 wrap4'
+;
+    /* grid-template-areas안에 사용되는 이름은
+        닉네임 같은거라서 아무거나 해서 grid-area를
+        적을때 같게만 적으면 된다. */
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 0px 0px;
+}
+.wrap1{
+    grid-area: wrap1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 10px;
+}
+/* table{
+   display: block;
+   justify-content: center;
+   align-items: center;
+} */
+#board1{
+    display: float;
+    justify-content: center;
+    align-items: center;
+    background-color: cornflowerblue;
+    width: 100%;
+    height: 100%;
+
+}
+
+.wrap2{
+    grid-area: wrap2;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+}
+#board2{
+    background-color: darksalmon;
+    width: 100%;
+    height: 100%;
+}
+
+.wrap3{
+    grid-area: wrap3;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 10px;
+}
+#board3{
+    background-color: forestgreen;
+    width: 100%;
+    height: 100%;
+}
+
+.wrap4{
+    grid-area: wrap4;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+}
+#board4{
+    background-color: hotpink;
+    width: 100%;
+    height: 100%;
+}
+
+
+aside{
+    grid-area: aside;
+    background-color: cornflowerblue;
+}
+footer{
+    grid-area: footer;
+    background-color: darkred;
+}

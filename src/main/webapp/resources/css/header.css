@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;  /* a 링크 밑줄 없앰 */
+}
+i{ color: rgb(255, 238, 82);}
+a:link { color: black; text-decoration: none;}
+.log:hover { color: black; text-decoration: underline;}
+
+header{
+    display: flex;
+    height: 100px;
+    background-color: rgb(190, 140, 99);
+    align-items: center;
+}
+.logoImage > i{
+    font-size: 70pt;
+    color: rgb(255, 238, 82);
+    padding-left: 30px;
+}
+.logotext a, strong{
+    font-size: 45pt;
+    /* font-weight: 1000; 세밀하게 굵게조정? */
+    color: black;
+}
+
+
+.headMenu{
+    position: absolute;
+    left: 500px;
+    font-size:25pt;
+    justify-content: center;
+    text-align: center;
+}
+.headMenu > a{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.headMenu > a:hover{
+    background-color: rgb(255, 238, 82);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    color: rgb(169, 113, 85);
+}
+
+.forUser{
+    position: absolute;
+    right: 45px;
+    font-size: 17pt;
+    padding: 7px;
+}
+.forUser > .my{
+    font-size: 30pt;
+    padding: 7px;
+}
+
